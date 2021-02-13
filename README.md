@@ -8,7 +8,7 @@
 | first_name           | string | null: false,              |
 | nickname             | string | null: false, unique: true |
 | email                | string | null: false, unique: true |
-| password             | string | null: false,              |
+| encrypted_password   | string | null: false,              |
 | family_name_furigana | string | null: false               |
 | first_name_furigana  | string | null: false               |
 | birthday             | date   | null: false               |
@@ -42,9 +42,10 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | postal_code        | string     | null: false                    |
-| prefecture         | string     | null: false                    |
+| area_id            | integer    | null: false                    |
 | municipality       | string     | null: false                    |
-| house_number       | integer    | null: false                    |
+| house_number       | string     | null: false                    |
+| building           | string     |                                |
 | phone_number       | string     | null: false                    |
 | purchase_record    | references | null: false, foreign_key: true |
 
