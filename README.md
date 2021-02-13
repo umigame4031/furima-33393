@@ -4,11 +4,11 @@
 
 | Column               | Type   | Options                   |
 | -------------------- | ------ | ------------------------- |
-| family_name          | string | null: false,              |
-| first_name           | string | null: false,              |
-| nickname             | string | null: false, unique: true |
+| family_name          | string | null: false               |
+| first_name           | string | null: false               |
+| nickname             | string | null: false               |
 | email                | string | null: false, unique: true |
-| encrypted_password   | string | null: false,              |
+| encrypted_password   | string | null: false               |
 | family_name_furigana | string | null: false               |
 | first_name_furigana  | string | null: false               |
 | birthday             | date   | null: false               |
