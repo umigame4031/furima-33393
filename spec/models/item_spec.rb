@@ -11,19 +11,19 @@ RSpec.describe Item, type: :model do
     end
 
     it 'nameが空では保存できない' do
-      @item.name = ""
+      @item.name = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Name can't be blank")
     end
 
     it 'textが空では保存できない' do
-      @item.text = ""
+      @item.text = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Text can't be blank")
     end
 
     it 'priceが空では保存できない' do
-      @item.price = ""
+      @item.price = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Price can't be blank")
     end
@@ -31,23 +31,23 @@ RSpec.describe Item, type: :model do
     it 'priceが300より小さいと保存できない' do
       @item.price = 100
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+      expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
     end
 
     it 'priceが9,999,999より大きいと保存できない' do
-      @item.price = 10000000
+      @item.price = 10_000_000
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+      expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
     end
 
     it 'priceが半角数字でないと保存できない' do
-      @item.price = "100$"
+      @item.price = '100$'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price is not a number")
+      expect(@item.errors.full_messages).to include('Price is not a number')
     end
 
     it 'category_idが空では保存できない' do
-      @item.category_id = ""
+      @item.category_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Category can't be blank")
     end
@@ -55,11 +55,11 @@ RSpec.describe Item, type: :model do
     it 'category_idが1では保存できない' do
       @item.category_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category must be other than 1")
+      expect(@item.errors.full_messages).to include('Category must be other than 1')
     end
 
     it 'state_idが空では保存できない' do
-      @item.state_id = ""
+      @item.state_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("State can't be blank")
     end
@@ -67,11 +67,11 @@ RSpec.describe Item, type: :model do
     it 'state_idが1では保存できない' do
       @item.state_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("State must be other than 1")
+      expect(@item.errors.full_messages).to include('State must be other than 1')
     end
 
     it 'delivery_fee_idが空では保存できない' do
-      @item.delivery_fee_id = ""
+      @item.delivery_fee_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
     end
@@ -79,11 +79,11 @@ RSpec.describe Item, type: :model do
     it 'delivery_fee_idが1では保存できない' do
       @item.delivery_fee_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery fee must be other than 1")
+      expect(@item.errors.full_messages).to include('Delivery fee must be other than 1')
     end
 
     it 'area_idが空では保存できない' do
-      @item.area_id = ""
+      @item.area_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Area can't be blank")
     end
@@ -91,11 +91,11 @@ RSpec.describe Item, type: :model do
     it 'area_idが1では保存できない' do
       @item.area_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Area must be other than 1")
+      expect(@item.errors.full_messages).to include('Area must be other than 1')
     end
 
     it 'days_idが空では保存できない' do
-      @item.days_id = ""
+      @item.days_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Days can't be blank")
     end
@@ -103,7 +103,7 @@ RSpec.describe Item, type: :model do
     it 'days_idが1では保存できない' do
       @item.days_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Days must be other than 1")
+      expect(@item.errors.full_messages).to include('Days must be other than 1')
     end
 
     it 'imageが空では保存できない' do
@@ -115,7 +115,7 @@ RSpec.describe Item, type: :model do
     it 'userが紐付いていないと保存できない' do
       @item.user = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("User must exist")
+      expect(@item.errors.full_messages).to include('User must exist')
     end
   end
 end
