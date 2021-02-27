@@ -48,7 +48,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
       end
-      
+
       it 'priceが半角英字のみだと保存できない' do
         @item.price = 'abc'
         @item.valid?
