@@ -21,9 +21,12 @@ class PurchaseRecordsController < ApplicationController
   end
 
   private
+
   def purchase_record_params
     @item = Item.find(params[:item_id])
-    params.require(:purchase_record_address).permit(:postal_code, :area_id, :municipality, :house_number, :building, :phone_number).merge(user_id: current_user.id, item_id: @item.id, token: params[:token])
+    params.require(:purchase_record_address).permit(:postal_code, :area_id, :municipality, :house_number, :building, :phone_number).merge(
+      user_id: current_user.id, item_id: @item.id, token: params[:token]
+    )
   end
 
   def correct_purchase_record
@@ -37,12 +40,11 @@ class PurchaseRecordsController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-      Payjp::Charge.create(
-        amount: @item.price,  # 商品の値段
-        card: purchase_record_params[:token],    # カードトークン
-        currency: 'jpy'                 # 通貨の種類（日本円）
-      )
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: @item.price,  # 商品の値段
+      card: purchase_record_params[:token], # カードトークン
+      currency: 'jpy'                 # 通貨の種類（日本円）
+    )
   end
-
 end
