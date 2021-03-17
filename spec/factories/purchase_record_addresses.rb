@@ -4,10 +4,8 @@ FactoryBot.define do
     area_id { 2 }
     municipality { '極寒市' }
     house_number { '1-1' }
+    building { '氷マンション' }
     phone_number { '09012345678' }
-    purchase_record_id { 1 }
-    user_id { 1 }
-    item_id { 1 }
     token { 'tok_abcdefghijk00000000000000000' }
   end
 end
