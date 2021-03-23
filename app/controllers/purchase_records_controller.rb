@@ -1,8 +1,8 @@
 class PurchaseRecordsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
+  before_action :set_item, only: [:index, :create, :purchase_record_params, :correct_purchase_record, :item_sold]
   before_action :correct_purchase_record, only: [:index, :create]
   before_action :item_sold, only: [:index, :create]
-  before_action :set_item, only: [:index, :create, :purchase_record_params, :correct_purchase_record, :item_sold]
 
   def index
     @purchase_record_address = PurchaseRecordAddress.new
